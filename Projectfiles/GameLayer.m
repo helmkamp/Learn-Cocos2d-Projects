@@ -32,6 +32,7 @@
         player.position = CGPointMake(screenSize.width/2, imageHeight/2);
         
         [self scheduleUpdate];
+        [self initSpiders];
     }
     
     return self;
@@ -84,5 +85,95 @@
     //assign the modified position back
     player.position = pos;
 }
+
+-(void)initSpiders {
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    
+    //using a temp spider sprite to get image size
+    CCSprite *tempSpider = [CCSprite spriteWithFile:@"spider.png"];
+    
+    float imageWidth = tempSpider.texture.contentSize.width;
+    
+    //Use as many spiders as can fit next to each other over the whole screen width
+    int numSpiders = screenSize.width/imageWidth;
+    
+    //init the spiders array using alloc
+    spiders = [NSMutableArray arrayWithCapacity:numSpiders];
+    
+    for (int i =0; i < numSpiders; i++) {
+        CCSprite *spider = [CCSprite spriteWithFile:@"spider.png"];
+        [self addChild:spider z:0 tag:2];
+        
+        //also add it to the array
+        [spiders addObject:spider];
+    }
+    
+    //call the method to reposition all spiders
+    [self resetSpiders];
+}
+
+-(void)resetSpiders {
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    
+    //get any spider to get its image width
+    CCSprite *tempSpider = [spiders lastObject];
+    CGSize size = tempSpider.texture.contentSize;
+    
+    int numSpiders = [spiders count];
+    for (int i = 0; i < numSpiders; i++) {
+        //put each spider at it's position outside the screen
+        CCSprite *spider = [spiders objectAtIndex:i];
+        spider.position = CGPointMake(size.width * i + size.width * 0.5, screenSize.height + size.height);
+        
+        [spider stopAllActions];
+    }
+    
+    //Schedule the spider update logic
+    [self schedule:@selector(spidersUpdate:) interval:0.7f];
+    
+    //reset the moved spiders counter and spider move duration
+    numSpidersMoved = 0;
+    spiderMoveDuration = 4.0f;
+}
+
+-(void)spidersUpdate:(ccTime)delta {
+    //try to find a spider which isn't moving
+    for (int i = 0; i < 10; i++) {
+        int randomSpiderIndex = CCRANDOM_0_1() * spiders.count;
+        CCSprite *spider = [spiders objectAtIndex:randomSpiderIndex];
+        
+        //if the spider isn't moving there will be no actions on it
+        if (spider.numberOfRunningActions ==0) {
+            [self runSpiderMoveSequence:spider];
+            break; //only one should move at a time
+        }
+    }
+}
+
+-(void)runSpiderMoveSequence:(CCSprite*)spider {
+    //slowly increase the spider speed over time
+    numSpidersMoved++;
+    if (numSpidersMoved % 8 == 0 && spiderMoveDuration > 2.0f) {
+        spiderMoveDuration -= 0.1f;
+    }
+    
+    //spider movement sequence
+    CGPoint belowScreenPosition = CGPointMake(spider.position.x, -spider.texture.contentSize.height);
+    CCMoveTo *move = [CCMoveTo actionWithDuration:spiderMoveDuration position:belowScreenPosition];
+    
+    CCCallBlock *callDidDrop = [CCCallBlock actionWithBlock:^void(){
+       //move the droppedSpider back up outside the top of the screen
+        CGPoint pos = spider.position;
+        CGSize screenSize = [CCDirector sharedDirector].winSize;
+        pos.y = screenSize.height + spider.texture.contentSize.height;
+        spider.position = pos;
+    }];
+    
+    CCSequence *sequence = [CCSequence actions:move, callDidDrop, nil];
+    [spider runAction:sequence];
+}
+
+
+
 
 @end

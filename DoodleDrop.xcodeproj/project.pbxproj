@@ -10,6 +10,8 @@
 		2C18CF68168C30C1008479FC /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C18CF67168C30C1008479FC /* GameLayer.m */; };
 		2C18CF6B168C3546008479FC /* alien-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C18CF69168C3546008479FC /* alien-hd.png */; };
 		2C18CF6C168C3546008479FC /* alien.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C18CF6A168C3546008479FC /* alien.png */; };
+		2C18CF6F168CEF7A008479FC /* spider-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C18CF6D168CEF7A008479FC /* spider-hd.png */; };
+		2C18CF70168CEF7A008479FC /* spider.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C18CF6E168CEF7A008479FC /* spider.png */; };
 		DC21B88B1511078F00FD4891 /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DC21B8881511078F00FD4891 /* fps_images-hd.png */; };
 		DC21B88C1511078F00FD4891 /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DC21B8891511078F00FD4891 /* fps_images-ipadhd.png */; };
 		DC21B88D1511078F00FD4891 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = DC21B88A1511078F00FD4891 /* fps_images.png */; };
@@ -56,6 +58,8 @@
 		2C18CF67168C30C1008479FC /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		2C18CF69168C3546008479FC /* alien-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alien-hd.png"; sourceTree = "<group>"; };
 		2C18CF6A168C3546008479FC /* alien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alien.png; sourceTree = "<group>"; };
+		2C18CF6D168CEF7A008479FC /* spider-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spider-hd.png"; sourceTree = "<group>"; };
+		2C18CF6E168CEF7A008479FC /* spider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spider.png; sourceTree = "<group>"; };
 		DC21B8881511078F00FD4891 /* fps_images-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fps_images-hd.png"; sourceTree = "<group>"; };
 		DC21B8891511078F00FD4891 /* fps_images-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fps_images-ipadhd.png"; sourceTree = "<group>"; };
 		DC21B88A1511078F00FD4891 /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fps_images.png; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 		DCC1A0F813A94ED5005BD75D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C18CF6D168CEF7A008479FC /* spider-hd.png */,
+				2C18CF6E168CEF7A008479FC /* spider.png */,
 				2C18CF69168C3546008479FC /* alien-hd.png */,
 				2C18CF6A168C3546008479FC /* alien.png */,
 				DC2721A7160CAFA600D88944 /* iTunesArtwork */,
@@ -356,6 +362,8 @@
 				DC2721A8160CAFA600D88944 /* iTunesArtwork in Resources */,
 				2C18CF6B168C3546008479FC /* alien-hd.png in Resources */,
 				2C18CF6C168C3546008479FC /* alien.png in Resources */,
+				2C18CF6F168CEF7A008479FC /* spider-hd.png in Resources */,
+				2C18CF70168CEF7A008479FC /* spider.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
