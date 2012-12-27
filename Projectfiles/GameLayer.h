@@ -11,6 +11,7 @@
 
 @interface GameLayer : CCLayer {
     CCSprite *player;
+    CGPoint playerVelocity;
 }
 
 +(id)scene;
