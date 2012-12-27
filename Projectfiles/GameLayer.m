@@ -60,9 +60,6 @@
         playerVelocity.x = -maxVelocity;
     }
     
-    CGPoint pos = player.position;
-    pos.x = acceleration.x*10;
-    player.position = pos;
 }
 
 -(void)update:(ccTime)delta {
