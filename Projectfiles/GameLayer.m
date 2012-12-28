@@ -38,10 +38,6 @@
     return self;
 }
 
--(void) dealloc {
-    CCLOG(@"%@: %@", NSStringFromSelector(_cmd), self);
-}
-
 -(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
     
     //controls deceleration-lower = quicker
@@ -60,7 +56,6 @@
     } else if (playerVelocity.x < -maxVelocity) {
         playerVelocity.x = -maxVelocity;
     }
-    
 }
 
 -(void)update:(ccTime)delta {
@@ -71,7 +66,7 @@
     //stop the player from going offscreen
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     float imageWidthHalved = player.texture.contentSize.width * 0.5f;
-    float leftBorderLimit = imageWidthHalved;
+    float leftBorderLimit = imageWidthHalved;    
     float rightBorderLimit = screenSize.width - imageWidthHalved;
     
     if (pos.x < leftBorderLimit) {
@@ -84,6 +79,8 @@
     
     //assign the modified position back
     player.position = pos;
+    
+    [self checkForCollision];
 }
 
 -(void)initSpiders {
@@ -176,7 +173,7 @@
 -(void)checkForCollision {
     // Assume both player and spider are squares
     float playerImageSize = player.texture.contentSize.width;
-    CCSprite *spider = [spiders lastObject];
+    CCSprite* spider = [spiders lastObject];
     float spiderImageSize = spider.texture.contentSize.width;
     float playerCollisionRadius = playerImageSize * 0.4f;
     float spiderCollisionRadius = spiderImageSize * 0.4f;
@@ -204,6 +201,23 @@
     }
 }
 
+#if DEBUG
+-(void) draw {
+    [super draw];
+    
+    for (CCNode *node in [self children]) {
+        if ([node isKindOfClass:[CCSprite class]] && (node.tag == 1 || node.tag == 2)) {
+            CCSprite *sprite = (CCSprite*)node;
+            float radius = sprite.texture.contentSize.width * 0.4f;
+            float angle = 0;
+            int numSegments = 10;
+            bool drawLineToCenter = NO;
+            ccDrawCircle(sprite.position, radius, angle, numSegments, drawLineToCenter);
+        }
+    }
+}
+#endif
+
 -(void) resetGame {
     [self resetSpiders];
 }
@@ -212,7 +226,9 @@
 
 
 
-
+-(void) dealloc {
+    CCLOG(@"%@: %@", NSStringFromSelector(_cmd), self);
+}
 
 
 @end
