@@ -173,6 +173,45 @@
     [spider runAction:sequence];
 }
 
+-(void)checkForCollision {
+    // Assume both player and spider are squares
+    float playerImageSize = player.texture.contentSize.width;
+    CCSprite *spider = [spiders lastObject];
+    float spiderImageSize = spider.texture.contentSize.width;
+    float playerCollisionRadius = playerImageSize * 0.4f;
+    float spiderCollisionRadius = spiderImageSize * 0.4f;
+    
+    //collision distance will roughly equal the image shapes.
+    float maxCollisionDistance = playerCollisionRadius + spiderCollisionRadius;
+    int numSpiders = spiders.count;
+    for (int i = 0; i < numSpiders; i++) {
+        spider = [spiders objectAtIndex:i];
+        
+        if (spider.numberOfRunningActions == 0) {
+            //spider isn't moving so we can skip it
+            continue;
+        }
+        
+        //get the distance between player and spider
+        float actualDistance = ccpDistance(player.position, spider.position);
+        
+        //Are the two objects closer than allowed?
+        if (actualDistance < maxCollisionDistance) {
+            //Game Over (just restart the game for now)
+            [self resetGame];
+            break;
+        }
+    }
+}
+
+-(void) resetGame {
+    [self resetSpiders];
+}
+
+
+
+
+
 
 
 
