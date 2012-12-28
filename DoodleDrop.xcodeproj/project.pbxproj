@@ -12,6 +12,10 @@
 		2C18CF6C168C3546008479FC /* alien.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C18CF6A168C3546008479FC /* alien.png */; };
 		2C18CF6F168CEF7A008479FC /* spider-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C18CF6D168CEF7A008479FC /* spider-hd.png */; };
 		2C18CF70168CEF7A008479FC /* spider.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C18CF6E168CEF7A008479FC /* spider.png */; };
+		2C18CF73168D6B02008479FC /* bitmapfont-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C18CF71168D6B02008479FC /* bitmapfont-hd.png */; };
+		2C18CF74168D6B02008479FC /* bitmapfont.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C18CF72168D6B02008479FC /* bitmapfont.png */; };
+		2C18CF77168D6B7E008479FC /* bitmapfont-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 2C18CF75168D6B7E008479FC /* bitmapfont-hd.fnt */; };
+		2C18CF78168D6B7E008479FC /* bitmapfont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 2C18CF76168D6B7E008479FC /* bitmapfont.fnt */; };
 		DC21B88B1511078F00FD4891 /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DC21B8881511078F00FD4891 /* fps_images-hd.png */; };
 		DC21B88C1511078F00FD4891 /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = DC21B8891511078F00FD4891 /* fps_images-ipadhd.png */; };
 		DC21B88D1511078F00FD4891 /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = DC21B88A1511078F00FD4891 /* fps_images.png */; };
@@ -60,6 +64,10 @@
 		2C18CF6A168C3546008479FC /* alien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alien.png; sourceTree = "<group>"; };
 		2C18CF6D168CEF7A008479FC /* spider-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spider-hd.png"; sourceTree = "<group>"; };
 		2C18CF6E168CEF7A008479FC /* spider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spider.png; sourceTree = "<group>"; };
+		2C18CF71168D6B02008479FC /* bitmapfont-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitmapfont-hd.png"; sourceTree = "<group>"; };
+		2C18CF72168D6B02008479FC /* bitmapfont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitmapfont.png; sourceTree = "<group>"; };
+		2C18CF75168D6B7E008479FC /* bitmapfont-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "bitmapfont-hd.fnt"; sourceTree = "<group>"; };
+		2C18CF76168D6B7E008479FC /* bitmapfont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitmapfont.fnt; sourceTree = "<group>"; };
 		DC21B8881511078F00FD4891 /* fps_images-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fps_images-hd.png"; sourceTree = "<group>"; };
 		DC21B8891511078F00FD4891 /* fps_images-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fps_images-ipadhd.png"; sourceTree = "<group>"; };
 		DC21B88A1511078F00FD4891 /* fps_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fps_images.png; sourceTree = "<group>"; };
@@ -185,9 +193,13 @@
 		DCC1A0F813A94ED5005BD75D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2C18CF71168D6B02008479FC /* bitmapfont-hd.png */,
+				2C18CF72168D6B02008479FC /* bitmapfont.png */,
 				2C18CF6D168CEF7A008479FC /* spider-hd.png */,
 				2C18CF6E168CEF7A008479FC /* spider.png */,
 				2C18CF69168C3546008479FC /* alien-hd.png */,
+				2C18CF75168D6B7E008479FC /* bitmapfont-hd.fnt */,
+				2C18CF76168D6B7E008479FC /* bitmapfont.fnt */,
 				2C18CF6A168C3546008479FC /* alien.png */,
 				DC2721A7160CAFA600D88944 /* iTunesArtwork */,
 				DC21B88A1511078F00FD4891 /* fps_images.png */,
@@ -364,6 +376,10 @@
 				2C18CF6C168C3546008479FC /* alien.png in Resources */,
 				2C18CF6F168CEF7A008479FC /* spider-hd.png in Resources */,
 				2C18CF70168CEF7A008479FC /* spider.png in Resources */,
+				2C18CF73168D6B02008479FC /* bitmapfont-hd.png in Resources */,
+				2C18CF74168D6B02008479FC /* bitmapfont.png in Resources */,
+				2C18CF77168D6B7E008479FC /* bitmapfont-hd.fnt in Resources */,
+				2C18CF78168D6B7E008479FC /* bitmapfont.fnt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,9 @@
     NSMutableArray *spiders;
     float spiderMoveDuration;
     int numSpidersMoved;
+    
+    int score;
+    CCNode <CCLabelProtocol> *scoreLabel;
 }
 
 +(id)scene;

@@ -31,8 +31,13 @@
         float imageHeight = player.texture.contentSize.height;
         player.position = CGPointMake(screenSize.width/2, imageHeight/2);
         
+        scoreLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"bitmapfont.fnt"];
+        scoreLabel.position = CGPointMake(screenSize.width/2, screenSize.height);
+        scoreLabel.anchorPoint = ccp(0.5f, 1.0f);
+        
         [self scheduleUpdate];
         [self initSpiders];
+        [self addChild:scoreLabel z:-1];
     }
     
     return self;
@@ -79,6 +84,10 @@
     
     //assign the modified position back
     player.position = pos;
+    
+    //set the "score" label
+    score = [CCDirector sharedDirector].totalFrames;
+    [scoreLabel setString: [NSString stringWithFormat:@"%i", score]];
     
     [self checkForCollision];
 }
@@ -219,6 +228,9 @@
 #endif
 
 -(void) resetGame {
+    score = 0;
+    [scoreLabel setString:@"0"];
+    
     [self resetSpiders];
 }
 
